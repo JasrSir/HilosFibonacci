@@ -46,8 +46,8 @@ class HiloPrincipal implements Runnable{
 		
 		//Try-catch para los cálculos y posibles errores
 		try {
-			fib1 = new Hilo(numero-1);
-			fib2 = new Hilo(numero-2);
+			fib1 = new Hilo(numero-1);  // No llamo a .start() porque en el constructor
+			fib2 = new Hilo(numero-2);  // ya hago correr el hilo en él.
 			fib1.esperaAlOtro();
 			fib2.esperaAlOtro();
 			
@@ -80,8 +80,8 @@ class Hilo implements Runnable {
 	//Constructor
 	public Hilo(int numFib) {
 		this.numfib = numFib;
-		hilito = new Thread(this);
-		hilito.start();
+		hilito = new Thread(this);  //Creamos el hilo
+		hilito.start();				//Corremos el hilo.
 	}
 	
 	//Método run
